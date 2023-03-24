@@ -1,0 +1,35 @@
+#!/bin/bash
+
+#if no argument is passed
+if [ -z $1 ]; then
+
+	#saves screenshot of entire screen to ~/Pictures/screencap with (Unix Timestamp)-full as the filename
+	scrot ~/Pictures/screencap/%s-full.png
+
+	#most recently modified file (screenshot we just made)
+	lastSaved=$(ls ~/Pictures/screencap -t | head -n1)
+	
+	#sends a notification
+	sw-notify-send 'Full screencap taken' 'Copied to clipboard and file saved to ~/Pictures/screencap/'${lastSaved}'.'
+
+	#copies the image to clipboard (comment this out if you don't want that)
+	copyq write image/png - < ~/Pictures/screencap/$lastSaved && copyq select 0
+
+#-r for region	
+elif [ $1 = "-r" ]; then
+	scrot -s ~/Pictures/screencap/%s-region.png
+	lastSaved=$(ls ~/Pictures/screencap -t | head -n1)
+	sw-notify-send 'Region screencap taken' 'Copied to clipboard and file saved to ~/Pictures/screencap/'${lastSaved}'.'
+	copyq write image/png - < ~/Pictures/screencap/$lastSaved && copyq select 0
+
+#-a for active window	
+elif [ $1 = "-a" ]; then
+	scrot -u ~/Pictures/screencap/%s-win.png
+	lastSaved=$(ls ~/Pictures/screencap -t | head -n1)
+	sw-notify-send 'Window screencap taken' 'Copied to clipboard and file saved to ~/Pictures/screencap/'${lastSaved}'.'
+	copyq write image/png - < ~/Pictures/screencap/$lastSaved && copyq select 0
+
+#won't see this if used as intended lol
+else
+	echo "Invalid option."
+fi
