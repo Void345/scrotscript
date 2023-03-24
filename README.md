@@ -16,3 +16,5 @@ intended to be bound with your hotkey manager
 `scrotscript -a` takes a screenshot of the active window
 
 <b>these are just normal scrot flags but i changed the letters because the scrot ones don't make sense :3</b>
+
+<b>EDIT:</b> i have been informed -s is for selection but i'm not accepting -u for focUsed
