@@ -16,6 +16,7 @@ intended to be bound with your hotkey manager
 `scrotscript -a` takes a screenshot of the active window
 
 ~~<b>these are just normal scrot flags but i changed the letters because the scrot ones don't make sense :3</b>~~
+
 ^ me 9 months ago is an idiot it's obviously -s for selection
 -u for active window still doesn't make sense though
 
