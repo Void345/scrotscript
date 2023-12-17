@@ -5,8 +5,6 @@ a little script i made to take screenshots how i want them to be taken:
 
 by default outputs to ~/Pictures/screencap (it doesn't create this directory)
 
-requires copyq, scrot, notify-send (script uses sw-notify-send cuz gentoo i think idk edit it urself)
-
 intended to be bound with your hotkey manager
 
 `scrotscript` takes a screenshot of the whole screen
