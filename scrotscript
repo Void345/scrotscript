@@ -13,21 +13,21 @@ if [ -z $1 ]; then
 	notify-send 'Full screencap taken' 'Copied to clipboard and file saved to ~/Pictures/screencap/'${lastSaved}'.'
 
 	#copies the image to clipboard (comment this out if you don't want that)
-	copyq write image/png - < ~/Pictures/screencap/$lastSaved && copyq select 0
+	xclip -selection clipboard -target image/png -i ~/Pictures/screencap/$lastSaved
 
 #-r for region	
 elif [ $1 = "-r" ]; then
 	scrot -s -f ~/Pictures/screencap/%s-region.png
 	lastSaved=$(ls ~/Pictures/screencap -t | head -n1)
 	notify-send 'Region screencap taken' 'Copied to clipboard and file saved to ~/Pictures/screencap/'${lastSaved}'.'
-	copyq write image/png - < ~/Pictures/screencap/$lastSaved && copyq select 0
+	xclip -selection clipboard -target image/png -i ~/Pictures/screencap/$lastSaved
 
 #-a for active window	
 elif [ $1 = "-a" ]; then
 	scrot -u ~/Pictures/screencap/%s-win.png
 	lastSaved=$(ls ~/Pictures/screencap -t | head -n1)
 	notify-send 'Window screencap taken' 'Copied to clipboard and file saved to ~/Pictures/screencap/'${lastSaved}'.'
-	copyq write image/png - < ~/Pictures/screencap/$lastSaved && copyq select 0
+	xclip -selection clipboard -target image/png -i ~/Pictures/screencap/$lastSaved
 
 #won't see this if used as intended lol
 else
