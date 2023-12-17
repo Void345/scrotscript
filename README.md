@@ -19,5 +19,3 @@ intended to be bound with your hotkey manager
 
 ^ me 9 months ago is an idiot it's obviously -s for selection
 -u for active window still doesn't make sense though
-
-<b>EDIT:</b> i have been informed -s is for selection but i'm not accepting -u for focUsed
